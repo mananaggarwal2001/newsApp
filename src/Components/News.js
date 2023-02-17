@@ -30,11 +30,14 @@ export class News extends Component {
     async updateNews() {
         // after the render method has run the component did mount will run and do the process which is gvien in the rendered method.
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.categories}&apiKey=fd5b69691fc948e9864e8c62c2751b06&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        this.props.setProgress(10)
         this.setState({
             loading: true
         })
         let data = await fetch(url)
+        this.props.setProgress(30)
         let parsedData = await data.json()
+        this.props.setProgress(70)
         console.log(parsedData)
         this.setState({
             articles: parsedData.articles,
@@ -42,6 +45,7 @@ export class News extends Component {
             pageSize: this.props.pageSize,
             loading: false
         })
+        this.props.setProgress(100)
     }
     async componentDidMount() {
         this.updateNews();
