@@ -37,12 +37,13 @@ const News = (props) => {
     const fetchMoreData = async () => {
         // a fake async api call like which sends
         // 20 more records in 1.5 secs
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.categories}&apiKey=${props.apiKey}&page=${Page+1}&pageSize=${PageSize}`;
+
+        setPage(Page + 1);
+        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.categories}&apiKey=${props.apiKey}&page=${Page}&pageSize=${PageSize}`;
         let data = await fetch(url)
         setloading(true)
         let parsedData = await data.json()
         console.log(parsedData)
-        setPage(Page + 1)
         setArticles(articles.concat(parsedData.articles))
         settotalResults(parsedData.totalResults)
         setPageSize(props.pageSize)
