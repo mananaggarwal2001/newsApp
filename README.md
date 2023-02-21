@@ -37,3 +37,11 @@ code .
 
 ![image](https://user-images.githubusercontent.com/75381077/220290266-fb87c9b5-1787-404a-b0c6-cea9774c699d.png)
 
+8. After inserting the key run the command in the command terminal of the Visual Studio code which is
+
+```dotnetcli
+npm run start
+```
+9. Then your project will be opened in the browser and Enjoy the Project and Explore your News.
+
+**Note: Make Sure you have followed these Steps Correctly then your project will work otherwise not and make sure the dependicies is also installed correctly as mentioned above to avoid any kind of error in the project.**
