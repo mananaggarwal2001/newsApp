@@ -55,7 +55,7 @@ const News = (props) => {
     }
     return (
         <>
-            <h2 className=' text-center text-lg-left' style={marginObject}>NewsMonkey - Top {props.categories.charAt(0).toUpperCase() + props.categories.slice(1)} HeadLines</h2>
+            <h2 className={`text-center text-lg-left ${props.darkMode === 'dark' ? 'text-light' : 'text-dark'}`} style={marginObject}>NewsMonkey - Top {props.categories.charAt(0).toUpperCase() + props.categories.slice(1)} HeadLines</h2>
 
 
             {loading && <Spinner />}
@@ -72,7 +72,7 @@ const News = (props) => {
                         {articles.map((element) => {
                             return <div className="col-md-4 my-3" key={element.url}>
 
-                                <Newsitem title={`${element.title ? element.title.slice(0, 44) : ''}...`} description={`${element.description ? element.description.slice(0, 44) : ''}...`} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                                <Newsitem darkMode={props.darkMode} title={`${element.title ? element.title.slice(0, 44) : ''}...`} description={`${element.description ? element.description.slice(0, 44) : ''}...`} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                             </div>
                         })}
                     </div>

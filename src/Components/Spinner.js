@@ -1,9 +1,9 @@
 import React  from 'react'
-import loading from './Spinner-Without-Background.gif'
+import loading from './Spinner.gif'
 const Spinner = () => {
   return (
     <div className='text-center'>
-      <img src={loading} alt="LOADING" />
+      <img style={{width:'90px'}} src={loading} alt="LOADING" />
     </div>
   )
 
