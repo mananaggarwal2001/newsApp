@@ -18,7 +18,7 @@ const App = () => {
     <BrowserRouter>
       <Navbar />
       <LoadingBar
-        color='purple'
+        color='white'
         progress={progress}
         height={3}
         shadow={true}

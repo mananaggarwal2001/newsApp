@@ -5,7 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 // eslint-disable-next-line
 const News = (props) => {
     const [articles, setArticles] = useState([]);
-    const [loading, setloading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [Page, setPage] = useState(1)
     const [totalResults, settotalResults] = useState(0)
     const [PageSize, setPageSize] = useState(1)
@@ -15,7 +15,7 @@ const News = (props) => {
         // after the render method has run the component did mount will run and do the process which is gvien in the rendered method.
         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.categories}&apiKey=${props.apiKey}&page=${Page}&pageSize=${props.pageSize}`;
         props.setProgress(10)
-        setloading(true)
+        setLoading(true)
         let data = await fetch(url)
         props.setProgress(30)
         let parsedData = await data.json()
@@ -24,7 +24,7 @@ const News = (props) => {
         setArticles(parsedData.articles)
         settotalResults(parsedData.totalResults);
         props.setProgress(100)
-        setloading(false)
+        setLoading(false)
     }
     useEffect(() => {
         document.title = ` NewsMonkey- ${props.categories.charAt(0).toUpperCase() + props.categories.slice(1)}`
@@ -41,13 +41,13 @@ const News = (props) => {
         setPage(Page + 1);
         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.categories}&apiKey=${props.apiKey}&page=${Page}&pageSize=${PageSize}`;
         let data = await fetch(url)
-        setloading(true)
+        setLoading(true)
         let parsedData = await data.json()
         console.log(parsedData)
         setArticles(articles.concat(parsedData.articles))
+        setLoading(false)
         settotalResults(parsedData.totalResults)
         setPageSize(props.pageSize)
-        setloading(false)
         // console.log(Articles.length)
     };
     const marginObject = {
@@ -59,13 +59,14 @@ const News = (props) => {
 
 
             {loading && <Spinner />}
+            {console.log(loading)}
             <InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}
-                hasMore={articles.length !== totalResults.length}
+                hasMore={articles.length !== totalResults.length + 1}
                 loader={<Spinner />}
             >
-                {console.log(articles.length)}
+                {console.log(articles.length - 1)}
                 <div className="container">
                     <div className="row">
                         {articles.map((element) => {
