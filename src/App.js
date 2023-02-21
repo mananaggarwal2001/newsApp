@@ -12,12 +12,12 @@ import News from './Components/News';
 const App = () => {
   const pageSize = 10;
   const country = 'in'
-  const key = process.env.REACT_APP_NEWS_API;
+  const key = "";
   const [progress, setprogress] = useState({ progress: 0 })
   const [darkMode, setdarkMode] = useState("light")
 
   const handleDarkMode = () => {
-    if (darkMode == 'light') {
+    if (darkMode === 'light') {
       setdarkMode("dark");
       document.body.style.background = "black"
     } else {
