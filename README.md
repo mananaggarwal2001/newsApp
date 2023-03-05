@@ -45,3 +45,6 @@ npm run start
 9. Then your project will be opened in the browser and Enjoy the Project and Explore your News.
 
 **Note: Make Sure you have followed these Steps Correctly then your project will work otherwise not and make sure the dependicies is also installed correctly as mentioned above to avoid any kind of error in the project.**
+
+### USE THIS PROTOTYPE OF THE APP FOR THE EXPERIENCE
+#### Link to  the App is [NewsApp](https://manannewsapp.netlify.app/)

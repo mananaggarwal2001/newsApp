@@ -12,7 +12,7 @@ import News from './Components/News';
 const App = () => {
   const pageSize = 10;
   const country = 'in'
-  const key = "";
+  const key = process.env.REACT_APP_NEWS_API;
   const [progress, setprogress] = useState({ progress: 0 })
   const [darkMode, setdarkMode] = useState("light")
 
